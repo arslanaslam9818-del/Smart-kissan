@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Detection | Smart Kissan AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#16a34a', darkGreen: '#14532d', earth: '#d97706', darkBg: '#0f172a' } } } }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-inter overflow-x-hidden">
+
+    <!-- Sidebar (Omitted for brevity, assume included via templates/JS in real app) -->
+    <aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform transform bg-white border-r border-gray-200 lg:translate-x-0">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-white flex flex-col">
+            <a href="../index.html" class="flex items-center gap-2 mb-8 pl-2 mt-2">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-earth flex items-center justify-center text-white"><i class="fa-solid fa-leaf text-sm"></i></div>
+                <span class="font-outfit font-bold text-xl text-darkGreen">Smart Kissan</span>
+            </a>
+            <ul class="space-y-2 font-medium flex-1">
+                <li><a href="index.html" class="flex items-center p-3 text-slate-600 rounded-lg hover:bg-slate-100 hover:text-primary transition-colors"><i class="fa-solid fa-chart-pie w-6"></i><span class="ml-3">Overview</span></a></li>
+                <li><a href="disease-detection.html" class="flex items-center p-3 text-primary rounded-lg bg-green-50"><i class="fa-solid fa-microscope w-6"></i><span class="ml-3">Disease Detection</span></a></li>
+                <!-- Other links -->
+            </ul>
+        </div>
+    </aside>
+
+    <div id="main-content" class="p-4 lg:ml-64 transition-all duration-300 min-h-screen">
+        <nav class="bg-white border border-gray-200 rounded-2xl px-4 py-3 flex justify-between items-center mb-6 shadow-sm">
+            <div class="flex items-center gap-4">
+                <button onclick="toggleSidebar()" class="lg:hidden text-slate-600 hover:text-primary"><i class="fa-solid fa-bars text-xl"></i></button>
+                <h2 class="text-xl font-bold text-slate-800">AI Disease Detection</h2>
+            </div>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full">
+            
+            <!-- Upload Area -->
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col">
+                <h3 class="text-lg font-bold text-slate-800 mb-2">Upload Crop Image</h3>
+                <p class="text-sm text-slate-500 mb-6">Upload a clear photo of the sick leaf or plant to identify the disease instantly.</p>
+                
+                <div class="border-2 border-dashed border-primary/50 bg-green-50/50 rounded-2xl p-10 flex-1 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-green-50 transition relative group overflow-hidden">
+                    
+                    <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-md text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-lg mb-1">Click to upload or drag & drop</h4>
+                    <p class="text-sm text-slate-500">JPG, PNG, WebP up to 10MB</p>
+                    
+                    <input type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" id="file-upload">
+                </div>
+            </div>
+
+            <!-- Analysis Result (Mock State) -->
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-bl-full z-0"></div>
+                
+                <div class="relative z-10">
+                    <h3 class="text-lg font-bold text-slate-800 mb-6 border-b border-gray-100 pb-4">Analysis Result</h3>
+                    
+                    <!-- Simulating successful upload result -->
+                    <div class="flex gap-6 mb-6">
+                        <img src="https://images.unsplash.com/photo-1628189871578-83bba808112c?w=200" alt="Sick leaf" class="w-32 h-32 object-cover rounded-xl shadow-md border border-gray-200">
+                        <div>
+                            <span class="inline-block px-3 py-1 rounded-full bg-red-100 text-red-600 font-bold text-xs uppercase tracking-wider mb-2">High Confidence (94%)</span>
+                            <h4 class="text-2xl font-bold text-slate-800 mb-1">Wheat Rust</h4>
+                            <p class="text-sm text-slate-600">Fungal infection affecting leaves and stems.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h5 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Impact</h5>
+                            <p class="text-sm text-slate-600 bg-amber-50 p-3 rounded-lg border border-amber-100">Can cause up to 20% yield loss if not treated immediately. Spreads quickly in high humidity.</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-slate-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-briefcase-medical text-primary"></i> Recommended Action</h5>
+                            <ul class="text-sm text-slate-600 bg-green-50 p-4 rounded-lg border border-green-100 space-y-2">
+                                <li><i class="fa-solid fa-check text-primary mr-2"></i> Apply Tebuconazole fungicide immediately.</li>
+                                <li><i class="fa-solid fa-check text-primary mr-2"></i> Ensure proper field drainage to reduce humidity.</li>
+                                <li><i class="fa-solid fa-check text-primary mr-2"></i> Avoid excessive nitrogen fertilization.</li>
+                            </ul>
+                        </div>
+                        <button class="w-full bg-primary hover:bg-primaryDark text-white font-bold py-3 rounded-xl shadow-md transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-store"></i> Buy Recommended Fungicide
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace | Smart Kissan AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#16a34a', darkGreen: '#14532d', earth: '#d97706', darkBg: '#0f172a' } } } }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-inter overflow-x-hidden">
+
+    <aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform transform bg-white border-r border-gray-200 lg:translate-x-0">
+        <!-- Sidebar content -->
+        <div class="h-full px-3 py-4 overflow-y-auto bg-white flex flex-col">
+            <a href="../index.html" class="flex items-center gap-2 mb-8 pl-2 mt-2">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-earth flex items-center justify-center text-white"><i class="fa-solid fa-leaf text-sm"></i></div>
+                <span class="font-outfit font-bold text-xl text-darkGreen">Smart Kissan</span>
+            </a>
+            <ul class="space-y-2 font-medium flex-1">
+                <li><a href="index.html" class="flex items-center p-3 text-slate-600 rounded-lg hover:bg-slate-100 hover:text-primary transition-colors"><i class="fa-solid fa-chart-pie w-6"></i><span class="ml-3">Overview</span></a></li>
+                <li><a href="marketplace.html" class="flex items-center p-3 text-primary rounded-lg bg-green-50"><i class="fa-solid fa-store w-6"></i><span class="ml-3">Marketplace</span></a></li>
+                <!-- Other links -->
+            </ul>
+        </div>
+    </aside>
+
+    <div id="main-content" class="p-4 lg:ml-64 transition-all duration-300">
+        <nav class="bg-white border border-gray-200 rounded-2xl px-4 py-3 flex justify-between items-center mb-6 shadow-sm">
+            <h2 class="text-xl font-bold text-slate-800">B2B Marketplace</h2>
+            <div class="flex items-center gap-3">
+                <button class="bg-slate-100 text-slate-600 px-3 py-2 rounded-lg font-bold text-sm hover:bg-slate-200 transition"><i class="fa-solid fa-cart-shopping"></i></button>
+                <button class="bg-earth hover:bg-yellow-600 text-white px-4 py-2 rounded-lg font-bold text-sm transition">Sell Produce</button>
+            </div>
+        </nav>
+
+        <!-- Search & Filter -->
+        <div class="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm mb-6 flex flex-col md:flex-row gap-4">
+            <div class="relative flex-1">
+                <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                <input type="text" placeholder="Search seeds, fertilizers, buyers..." class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none">
+            </div>
+            <select class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm text-slate-600 outline-none">
+                <option>Category: All</option>
+                <option>Seeds</option>
+                <option>Fertilizers</option>
+                <option>Equipment</option>
+            </select>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Item 1 -->
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover-lift group">
+                <div class="h-40 bg-gray-200 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1595804369415-4ba2e316a3c6?w=400" alt="Seeds" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <span class="absolute top-2 left-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">Verified Seller</span>
+                </div>
+                <div class="p-4">
+                    <p class="text-xs text-slate-500 mb-1">Seeds</p>
+                    <h3 class="font-bold text-slate-800 mb-2 truncate">Premium Hybrid Wheat Seeds (50kg)</h3>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-bold text-lg text-primary">₨ 8,500</span>
+                        <span class="text-xs text-slate-500"><i class="fa-solid fa-star text-yellow-400"></i> 4.8</span>
+                    </div>
+                    <button class="w-full bg-slate-100 hover:bg-primary hover:text-white text-slate-700 font-bold py-2 rounded-xl transition-colors">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover-lift group">
+                <div class="h-40 bg-gray-200 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1627997095368-f9b0ed8203f7?w=400" alt="Fertilizer" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs text-slate-500 mb-1">Fertilizer</p>
+                    <h3 class="font-bold text-slate-800 mb-2 truncate">DAP Fertilizer Engro (50kg Bag)</h3>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-bold text-lg text-primary">₨ 12,000</span>
+                        <span class="text-xs text-slate-500"><i class="fa-solid fa-star text-yellow-400"></i> 4.9</span>
+                    </div>
+                    <button class="w-full bg-slate-100 hover:bg-primary hover:text-white text-slate-700 font-bold py-2 rounded-xl transition-colors">Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

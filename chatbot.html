@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agronomist Assistant | Smart Kissan AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/api.js"></script>
+    <script>
+        if (!API.getToken()) {
+            window.location.href = '../login.html';
+        }
+    </script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#16a34a', darkGreen: '#14532d', earth: '#d97706', darkBg: '#0f172a' } } } }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-inter overflow-x-hidden h-screen flex flex-col">
+
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform transform bg-white border-r border-gray-200 lg:translate-x-0">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-white flex flex-col">
+            <a href="../index.html" class="flex items-center gap-2 mb-8 pl-2 mt-2">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-earth flex items-center justify-center text-white"><i class="fa-solid fa-leaf text-sm"></i></div>
+                <span class="text-xl font-black text-slate-800 tracking-tight">Smart<span class="text-primary">Kissan</span></span>
+            </a>
+            <ul class="space-y-2 font-medium">
+                <li><a href="index.html" class="flex items-center p-3 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors"><i class="fa-solid fa-chart-pie w-6"></i><span class="ml-3">Dashboard</span></a></li>
+                <li><a href="crop-management.html" class="flex items-center p-3 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors"><i class="fa-solid fa-seedling w-6"></i><span class="ml-3">Crop Management</span></a></li>
+                <li><a href="smart-irrigation.html" class="flex items-center p-3 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors"><i class="fa-solid fa-droplet w-6"></i><span class="ml-3">Smart Irrigation</span></a></li>
+                <li><a href="chatbot.html" class="flex items-center p-3 text-primary bg-green-50/80 rounded-lg transition-colors"><i class="fa-solid fa-robot w-6"></i><span class="ml-3">AI Agronomist</span></a></li>
+                <li><a href="disease-detection.html" class="flex items-center p-3 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors"><i class="fa-solid fa-bug w-6"></i><span class="ml-3">Disease Detection</span></a></li>
+                <li><a href="weather.html" class="flex items-center p-3 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors"><i class="fa-solid fa-cloud-sun w-6"></i><span class="ml-3">Weather Advisory</span></a></li>
+                <li><a href="marketplace.html" class="flex items-center p-3 text-slate-600 rounded-lg hover:bg-slate-50 transition-colors"><i class="fa-solid fa-store w-6"></i><span class="ml-3">Marketplace</span></a></li>
+            </ul>
+            <div class="mt-auto border-t border-gray-200 pt-4">
+                <a href="#" onclick="API.logout(); return false;" class="flex items-center p-3 text-slate-600 rounded-lg hover:bg-red-50 hover:text-red-600 group transition-colors">
+                    <i class="fa-solid fa-right-from-bracket w-6"></i>
+                    <span class="ml-3">Logout</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Chat Workspace -->
+    <div id="main-content" class="p-4 lg:ml-64 flex-1 flex flex-col h-screen overflow-hidden">
+        
+        <nav class="bg-white border border-gray-200 rounded-2xl px-4 py-3 flex justify-between items-center mb-4 shadow-sm shrink-0">
+            <div class="flex items-center gap-4">
+                <button onclick="toggleSidebar()" class="lg:hidden text-slate-600 hover:text-primary"><i class="fa-solid fa-bars text-xl"></i></button>
+                <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2"><i class="fa-solid fa-robot text-primary"></i> AI Agronomist</h2>
+            </div>
+        </nav>
+
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm flex-1 flex flex-col overflow-hidden relative">
+
+            <!-- Chat Message Feed -->
+            <div id="chat-area" class="flex-1 overflow-y-auto p-6 space-y-6 bg-slate-50/50">
+                <!-- Welcome Message -->
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-earth flex items-center justify-center text-white shrink-0 shadow-sm">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <div class="bg-white border border-gray-100 rounded-2xl rounded-tl-none p-4 shadow-sm max-w-[80%] text-sm text-slate-700">
+                        <p class="mb-2 font-semibold">Assalamu Alaikum!</p>
+                        <p>I am your digital AI Agronomist assistant. Mention crops like <strong>Wheat</strong>, <strong>Cotton</strong>, <strong>Sugarcane</strong>, or ask about <strong>fertilizers</strong>, <strong>pest management</strong>, or <strong>current Punjab grain prices</strong> to get customized local recommendations!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Suggestions -->
+            <div class="px-6 py-3 flex gap-2 overflow-x-auto scrollbar-hide shrink-0 bg-white border-t border-gray-50">
+                <button onclick="sendQuickPrompt('Wheat fertilizing tips')" class="bg-green-50 text-primary border border-green-200 hover:bg-green-100 px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition">Wheat fertilizing tips</button>
+                <button onclick="sendQuickPrompt('When to water my fields?')" class="bg-green-50 text-primary border border-green-200 hover:bg-green-100 px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition">When to water crops?</button>
+                <button onclick="sendQuickPrompt('Cotton whiteflies pest control')" class="bg-green-50 text-primary border border-green-200 hover:bg-green-100 px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition">Cotton pests control</button>
+                <button onclick="sendQuickPrompt('Punjab mandi Wheat price')" class="bg-green-50 text-primary border border-green-200 hover:bg-green-100 px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition">Mandi Wheat price</button>
+            </div>
+
+            <!-- Input Form Box -->
+            <div class="p-4 bg-white border-t border-gray-200 shrink-0">
+                <div class="relative flex items-center gap-2">
+                    <input type="text" id="chat-input" placeholder="Ask your AI Agronomist assistant..." class="w-full pl-4 pr-12 py-3.5 bg-slate-100 border-none rounded-xl focus:ring-2 focus:ring-primary outline-none text-slate-800 text-sm">
+                    <button onclick="handleSendMessage()" id="send-btn" class="w-11 h-11 rounded-xl bg-primary text-white flex items-center justify-center shadow-md hover:bg-primaryDark transition shrink-0">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/dashboard.js"></script>
+    <script>
+        const chatArea = document.getElementById('chat-area');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        // Form keys
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleSendMessage();
+            }
+        });
+
+        async function handleSendMessage() {
+            const query = chatInput.value.trim();
+            if (!query) return;
+
+            chatInput.value = '';
+            
+            // Append User message
+            appendMessage(query, 'user');
+            
+            // Append typing indicator
+            const typingBubble = appendTypingIndicator();
+            chatArea.scrollTop = chatArea.scrollHeight;
+
+            try {
+                const response = await API.request('POST', '/chat', { message: query });
+                
+                // Remove indicator
+                typingBubble.remove();
+                
+                // Append AI reply
+                appendMessage(response.message, 'ai');
+            } catch (err) {
+                typingBubble.remove();
+                appendMessage("I am having a brief connectivity problem with my agronomist engine. Please retry.", 'ai');
+            }
+            
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }
+
+        function appendMessage(text, sender) {
+            const msgDiv = document.createElement('div');
+            
+            if (sender === 'user') {
+                msgDiv.className = 'flex items-start gap-4 flex-row-reverse';
+                msgDiv.innerHTML = `
+                    <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center border border-gray-200 shrink-0 text-slate-700 font-bold text-sm">
+                        U
+                    </div>
+                    <div class="bg-primary text-white rounded-2xl rounded-tr-none p-4 shadow-sm max-w-[80%] text-sm">
+                        <p>${escapeHtml(text)}</p>
+                    </div>
+                `;
+            } else {
+                msgDiv.className = 'flex items-start gap-4';
+                msgDiv.innerHTML = `
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-earth flex items-center justify-center text-white shrink-0 shadow-sm">
+                        <i class="fa-solid fa-leaf text-xs"></i>
+                    </div>
+                    <div class="bg-white border border-gray-100 rounded-2xl rounded-tl-none p-4 shadow-sm max-w-[80%] text-sm text-slate-700">
+                        <p>${text.replace(/\n/g, '<br>')}</p>
+                    </div>
+                `;
+            }
+            
+            chatArea.appendChild(msgDiv);
+        }
+
+        function appendTypingIndicator() {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'flex items-start gap-4';
+            msgDiv.innerHTML = `
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-earth flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <i class="fa-solid fa-leaf text-xs"></i>
+                </div>
+                <div class="bg-white border border-gray-100 rounded-2xl rounded-tl-none p-4 shadow-sm max-w-[80%] text-sm text-slate-400 flex items-center gap-1.5 py-3 px-4">
+                    <div class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style="animation-delay: 0ms"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style="animation-delay: 150ms"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style="animation-delay: 300ms"></div>
+                </div>
+            `;
+            chatArea.appendChild(msgDiv);
+            return msgDiv;
+        }
+
+        function sendQuickPrompt(promptText) {
+            chatInput.value = promptText;
+            handleSendMessage();
+        }
+
+        function escapeHtml(string) {
+            return String(string).replace(/[&<>"']/g, function(s) {
+                return {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#39;'
+                }[s];
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather | Smart Kissan AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#16a34a', darkGreen: '#14532d', earth: '#d97706', darkBg: '#0f172a' } } } }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-inter overflow-x-hidden">
+
+    <aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform transform bg-white border-r border-gray-200 lg:translate-x-0">
+        <!-- Sidebar content -->
+        <div class="h-full px-3 py-4 overflow-y-auto bg-white flex flex-col">
+            <a href="../index.html" class="flex items-center gap-2 mb-8 pl-2 mt-2">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-earth flex items-center justify-center text-white"><i class="fa-solid fa-leaf text-sm"></i></div>
+                <span class="font-outfit font-bold text-xl text-darkGreen">Smart Kissan</span>
+            </a>
+            <ul class="space-y-2 font-medium flex-1">
+                <li><a href="index.html" class="flex items-center p-3 text-slate-600 rounded-lg hover:bg-slate-100 hover:text-primary transition-colors"><i class="fa-solid fa-chart-pie w-6"></i><span class="ml-3">Overview</span></a></li>
+                <li><a href="weather.html" class="flex items-center p-3 text-primary rounded-lg bg-green-50"><i class="fa-solid fa-cloud-sun-rain w-6"></i><span class="ml-3">Weather Monitoring</span></a></li>
+                <!-- Other links -->
+            </ul>
+        </div>
+    </aside>
+
+    <div id="main-content" class="p-4 lg:ml-64 transition-all duration-300">
+        <nav class="bg-white border border-gray-200 rounded-2xl px-4 py-3 flex justify-between items-center mb-6 shadow-sm">
+            <h2 class="text-xl font-bold text-slate-800">Weather Monitoring</h2>
+        </nav>
+
+        <!-- Current Weather -->
+        <div class="bg-gradient-to-r from-blue-500 to-blue-700 rounded-3xl p-8 shadow-lg text-white mb-6 relative overflow-hidden">
+            <i class="fa-solid fa-cloud absolute right-10 top-10 text-9xl text-white/10"></i>
+            <div class="relative z-10 flex flex-col md:flex-row justify-between items-center md:items-start gap-6">
+                <div>
+                    <p class="text-blue-100 font-medium mb-1"><i class="fa-solid fa-location-dot mr-1"></i> Lahore, Punjab (Your Farm)</p>
+                    <h3 class="text-6xl font-bold mb-2 flex items-center gap-4">32°C <i class="fa-solid fa-sun text-yellow-300 text-5xl animate-pulse-soft"></i></h3>
+                    <p class="text-xl text-blue-100">Sunny & Clear</p>
+                </div>
+                <div class="bg-black/20 backdrop-blur-md rounded-2xl p-4 flex gap-8">
+                    <div class="text-center">
+                        <i class="fa-solid fa-droplet text-blue-200 text-xl mb-1"></i>
+                        <p class="text-sm text-blue-100">Humidity</p>
+                        <p class="font-bold">45%</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fa-solid fa-wind text-blue-200 text-xl mb-1"></i>
+                        <p class="text-sm text-blue-100">Wind</p>
+                        <p class="font-bold">12 km/h</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fa-solid fa-cloud-rain text-blue-200 text-xl mb-1"></i>
+                        <p class="text-sm text-blue-100">Rain</p>
+                        <p class="font-bold">0%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hourly & Alerts -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <div class="lg:col-span-2 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <h3 class="text-lg font-bold text-slate-800 mb-6">Today's Forecast</h3>
+                <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+                    <!-- Hourly Item -->
+                    <div class="text-center min-w-[80px]">
+                        <p class="text-sm text-slate-500 mb-2">12 PM</p>
+                        <i class="fa-solid fa-sun text-yellow-400 text-2xl mb-2"></i>
+                        <p class="font-bold text-slate-800">32°</p>
+                    </div>
+                    <div class="text-center min-w-[80px]">
+                        <p class="text-sm text-slate-500 mb-2">03 PM</p>
+                        <i class="fa-solid fa-cloud-sun text-yellow-400 text-2xl mb-2"></i>
+                        <p class="font-bold text-slate-800">34°</p>
+                    </div>
+                    <div class="text-center min-w-[80px]">
+                        <p class="text-sm text-slate-500 mb-2">06 PM</p>
+                        <i class="fa-solid fa-cloud text-gray-400 text-2xl mb-2"></i>
+                        <p class="font-bold text-slate-800">30°</p>
+                    </div>
+                    <div class="text-center min-w-[80px] bg-blue-50 rounded-xl py-2">
+                        <p class="text-sm text-blue-600 font-bold mb-2">09 PM</p>
+                        <i class="fa-solid fa-cloud-rain text-blue-500 text-2xl mb-2"></i>
+                        <p class="font-bold text-blue-800">26°</p>
+                        <p class="text-xs text-blue-500 font-bold">60%</p>
+                    </div>
+                    <div class="text-center min-w-[80px]">
+                        <p class="text-sm text-slate-500 mb-2">12 AM</p>
+                        <i class="fa-solid fa-moon text-indigo-400 text-2xl mb-2"></i>
+                        <p class="font-bold text-slate-800">24°</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-red-200 shadow-sm bg-red-50/30">
+                <h3 class="text-lg font-bold text-red-600 mb-4 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i> Weather Alerts</h3>
+                <div class="bg-white p-4 rounded-xl border border-red-100 shadow-sm">
+                    <span class="bg-red-100 text-red-600 text-xs font-bold px-2 py-1 rounded mb-2 inline-block">Rain Alert</span>
+                    <p class="text-sm text-slate-700 font-medium mb-1">Expected rain tonight around 9 PM.</p>
+                    <p class="text-xs text-slate-500">Delay pesticide spray until tomorrow.</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Irrigation | Smart Kissan AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/api.js"></script>
+    <script>
+        if (!API.getToken()) {
+            window.location.href = '../login.html';
+        }
+    </script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#16a34a', darkGreen: '#14532d', earth: '#d97706', darkBg: '#0f172a' } } } }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-inter overflow-x-hidden">
+
+    <aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform transform bg-white border-r border-gray-200 lg:translate-x-0">
+        <!-- Sidebar content -->
+        <div class="h-full px-3 py-4 overflow-y-auto bg-white flex flex-col">
+            <a href="../index.html" class="flex items-center gap-2 mb-8 pl-2 mt-2">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-earth flex items-center justify-center text-white"><i class="fa-solid fa-leaf text-sm"></i></div>
+                <span class="font-outfit font-bold text-xl text-darkGreen">Smart Kissan</span>
+            </a>
+            <ul class="space-y-2 font-medium flex-1">
+                <li><a href="index.html" class="flex items-center p-3 text-slate-600 rounded-lg hover:bg-slate-100 hover:text-primary transition-colors"><i class="fa-solid fa-chart-pie w-6"></i><span class="ml-3">Overview</span></a></li>
+                <li><a href="smart-irrigation.html" class="flex items-center p-3 text-primary rounded-lg bg-green-50"><i class="fa-solid fa-droplet w-6"></i><span class="ml-3">Smart Irrigation</span></a></li>
+                <!-- Other links -->
+            </ul>
+        </div>
+    </aside>
+
+    <div id="main-content" class="p-4 lg:ml-64 transition-all duration-300">
+        <nav class="bg-white border border-gray-200 rounded-2xl px-4 py-3 flex justify-between items-center mb-6 shadow-sm">
+            <h2 class="text-xl font-bold text-slate-800">Smart Irrigation</h2>
+        </nav>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <!-- Sensor Data 1 -->
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm relative overflow-hidden group">
+                <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-blue-500 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500"></div>
+                <p class="text-sm font-medium text-slate-500 mb-2">Soil Moisture (Field A)</p>
+                <div class="flex items-end gap-3 mb-4">
+                    <h3 class="text-4xl font-bold text-slate-800">22%</h3>
+                    <span class="text-red-500 text-sm font-bold pb-1 flex items-center"><i class="fa-solid fa-arrow-down mr-1"></i> Low</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-red-500 h-2 rounded-full" style="width: 22%"></div>
+                </div>
+                <button class="mt-4 w-full text-center py-2 bg-blue-50 hover:bg-blue-100 text-blue-600 rounded-lg font-bold text-sm transition">Start Pump 1</button>
+            </div>
+
+            <!-- Sensor Data 2 -->
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm relative overflow-hidden group">
+                <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-blue-500 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-500"></div>
+                <p class="text-sm font-medium text-slate-500 mb-2">Soil Moisture (Field B)</p>
+                <div class="flex items-end gap-3 mb-4">
+                    <h3 class="text-4xl font-bold text-slate-800">65%</h3>
+                    <span class="text-green-500 text-sm font-bold pb-1 flex items-center">Optimal</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-green-500 h-2 rounded-full" style="width: 65%"></div>
+                </div>
+                <button class="mt-4 w-full text-center py-2 bg-slate-100 text-slate-400 rounded-lg font-bold text-sm cursor-not-allowed">Pump 2 Inactive</button>
+            </div>
+
+            <!-- Water Source -->
+            <div class="bg-blue-600 rounded-2xl p-6 text-white shadow-lg relative overflow-hidden">
+                <i class="fa-solid fa-water absolute -right-4 -top-4 text-7xl text-white/10"></i>
+                <p class="text-sm font-medium text-blue-100 mb-2">Main Tube Well Level</p>
+                <h3 class="text-4xl font-bold mb-6">85%</h3>
+                <div class="w-full bg-white/20 rounded-full h-4 relative overflow-hidden">
+                    <!-- Animated water fill -->
+                    <div class="absolute top-0 left-0 h-full bg-white rounded-full w-[85%] relative overflow-hidden">
+                        <div class="absolute inset-0 bg-blue-400/30 animate-pulse"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-lg font-bold text-slate-800">Irrigation Schedule</h3>
+                <button onclick="openIrrigationModal()" class="bg-primary hover:bg-primaryDark text-white px-4 py-2 rounded-lg font-semibold transition text-sm flex items-center gap-2 shadow-sm">
+                    <i class="fa-solid fa-plus"></i> Add Schedule
+                </button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-slate-600">
+                    <thead class="text-xs text-slate-500 uppercase bg-slate-50">
+                        <tr>
+                            <th class="px-6 py-3 rounded-tl-lg">Field</th>
+                            <th class="px-6 py-3">Crop</th>
+                            <th class="px-6 py-3">Duration</th>
+                            <th class="px-6 py-3">Scheduled Time</th>
+                            <th class="px-6 py-3">Status</th>
+                            <th class="px-6 py-3 rounded-tr-lg">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedules-tbody">
+                        <!-- Loaded dynamically -->
+                        <tr>
+                            <td colspan="6" class="px-6 py-10 text-center text-slate-400">Loading schedules list...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <!-- Add Irrigation Modal -->
+    <div id="add-irrigation-modal" class="fixed inset-0 z-50 overflow-y-auto hidden flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm transition-all duration-300">
+        <div class="bg-white rounded-3xl w-full max-w-md p-6 sm:p-8 shadow-2xl border border-gray-100 transform scale-95 transition-transform duration-300">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-50 flex items-center justify-center"><i class="fa-solid fa-droplet text-blue-500"></i></div>
+                    Add Schedule
+                </h3>
+                <button onclick="closeIrrigationModal()" class="text-slate-400 hover:text-slate-600 transition"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            
+            <form id="add-irrigation-form" class="space-y-4">
+                <div id="modal-irrigation-error" class="hidden bg-red-500/10 border border-red-500/20 text-red-600 p-3 rounded-xl text-sm text-center"></div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Field Name</label>
+                    <input type="text" id="irrigation-field" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition" placeholder="e.g. Field A" required>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Watering Duration</label>
+                    <input type="text" id="irrigation-duration" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition" placeholder="e.g. 4 Hours" required>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Scheduled Time</label>
+                    <input type="text" id="irrigation-time" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary outline-none transition" placeholder="e.g. Today, 18:00" required>
+                </div>
+                
+                <button type="submit" id="modal-irrigation-submit-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg transition-transform hover:-translate-y-0.5 mt-2 flex items-center justify-center gap-2">
+                    Save Schedule
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../assets/js/dashboard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', loadSchedules);
+
+        // Fetch and load irrigation schedules
+        async function loadSchedules() {
+            const tbody = document.getElementById('schedules-tbody');
+            try {
+                const schedules = await API.request('GET', '/irrigation');
+                tbody.innerHTML = '';
+                
+                if (schedules.length === 0) {
+                    tbody.innerHTML = `
+                        <tr>
+                            <td colspan="6" class="px-6 py-10 text-center text-slate-400">No watering tasks scheduled yet.</td>
+                        </tr>
+                    `;
+                    return;
+                }
+
+                schedules.forEach(sched => {
+                    const isPending = sched.status.toLowerCase().includes('pending');
+                    const isScheduled = sched.status.toLowerCase().includes('schedule');
+                    const isCompleted = sched.status.toLowerCase().includes('complete') || sched.status.toLowerCase().includes('active');
+                    
+                    let badgeClass = 'bg-blue-100 text-blue-600';
+                    if (isPending) badgeClass = 'bg-amber-100 text-amber-600';
+                    else if (isCompleted) badgeClass = 'bg-green-100 text-green-600';
+                    
+                    // Simple simulated crop mapping
+                    const cropMap = {
+                        'field a': 'Wheat',
+                        'field b': 'Cotton',
+                        'field c': 'Sugarcane',
+                        'default': 'Vegetables'
+                    };
+                    const cropName = cropMap[sched.field.toLowerCase()] || cropMap['default'];
+
+                    tbody.innerHTML += `
+                        <tr class="bg-white border-b hover:bg-slate-50/50 transition-colors">
+                            <td class="px-6 py-4 font-bold text-slate-800">${sched.field}</td>
+                            <td class="px-6 py-4">${cropName}</td>
+                            <td class="px-6 py-4">${sched.duration}</td>
+                            <td class="px-6 py-4">${sched.scheduledTime}</td>
+                            <td class="px-6 py-4">
+                                <span class="${badgeClass} px-2.5 py-1 rounded-lg text-xs font-bold tracking-wide">${sched.status}</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                ${isPending ? `
+                                    <button onclick="startWaterPump(${sched.id}, '${sched.field}')" class="text-blue-500 hover:text-blue-700 font-bold hover:underline transition">Start Pump</button>
+                                ` : `
+                                    <span class="text-slate-400 italic">None</span>
+                                `}
+                            </td>
+                        </tr>
+                    `;
+                });
+            } catch (err) {
+                console.error(err);
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="px-6 py-10 text-center text-red-500">Failed to load schedules: ${err.message}</td>
+                    </tr>
+                `;
+            }
+        }
+
+        // Modal triggers
+        function openIrrigationModal() {
+            document.getElementById('add-irrigation-modal').classList.remove('hidden');
+        }
+
+        function closeIrrigationModal() {
+            document.getElementById('add-irrigation-modal').classList.add('hidden');
+            document.getElementById('add-irrigation-form').reset();
+            document.getElementById('modal-irrigation-error').classList.add('hidden');
+        }
+
+        // Form Submit
+        document.getElementById('add-irrigation-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('modal-irrigation-submit-btn');
+            const errorDiv = document.getElementById('modal-irrigation-error');
+            
+            const field = document.getElementById('irrigation-field').value.trim();
+            const duration = document.getElementById('irrigation-duration').value.trim();
+            const scheduledTime = document.getElementById('irrigation-time').value.trim();
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Saving...';
+            errorDiv.classList.add('hidden');
+
+            try {
+                await API.request('POST', '/irrigation', { field, duration, scheduledTime });
+                closeIrrigationModal();
+                loadSchedules();
+            } catch (err) {
+                errorDiv.textContent = err.message || 'Failed to add irrigation schedule.';
+                errorDiv.classList.remove('hidden');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Save Schedule';
+            }
+        });
+
+        // Trigger watering pump simulation
+        function startWaterPump(id, field) {
+            alert(`Pump started for ${field}! Watering active.`);
+            // Update table state locally or globally if needed
+        }
+    </script>
+</body>
+</html>

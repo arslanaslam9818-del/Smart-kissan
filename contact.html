@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Smart Kissan AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#16a34a', primaryDark: '#15803d', darkGreen: '#14532d', earth: '#d97706', lightEarth: '#fef3c7', darkBg: '#0f172a' } } } }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-primary selection:text-white">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass border-b border-gray-200">
+        <!-- Navbar -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-earth flex items-center justify-center text-white"><i class="fa-solid fa-leaf text-xl"></i></div>
+                    <span class="font-outfit font-bold text-2xl text-darkGreen">Smart Kissan <span class="text-primary">AI</span></span>
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-slate-600 hover:text-primary font-medium transition-colors">Home</a>
+                    <a href="about.html" class="text-slate-600 hover:text-primary font-medium transition-colors">About</a>
+                    <a href="services.html" class="text-slate-600 hover:text-primary font-medium transition-colors">Services</a>
+                    <a href="contact.html" class="text-primary font-semibold transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="pt-32 pb-20 bg-darkGreen text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Get in Touch</h1>
+        <p class="text-green-100 text-lg">We are here to help you grow. Reach out to our expert team.</p>
+    </section>
+
+    <!-- Contact Form & Info -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Info -->
+                <div>
+                    <h2 class="text-3xl font-bold text-darkGreen mb-6">Contact Information</h2>
+                    <p class="text-slate-600 mb-8">Have questions about our AI features or pricing? Contact us directly or fill out the form, and we will get back to you within 24 hours.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-primary text-xl shrink-0"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Office Location</h4>
+                                <p class="text-slate-600">Arfa Software Technology Park,<br>Ferozepur Road, Lahore, Pakistan</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-500 text-xl shrink-0"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Phone</h4>
+                                <p class="text-slate-600">+92 300 1234567<br>Toll-Free: 0800-KISSAN</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center text-earth text-xl shrink-0"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Email</h4>
+                                <p class="text-slate-600">support@smartkissan.ai<br>sales@smartkissan.ai</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="glass p-8 rounded-3xl border border-gray-200 shadow-xl">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6">Send us a Message</h3>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">First Name</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="John">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Last Name</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="Doe">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="button" class="w-full bg-primary hover:bg-primaryDark text-white font-bold py-3 px-4 rounded-xl shadow-lg transition-transform hover:-translate-y-1">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

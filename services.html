@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Smart Kissan AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#16a34a', primaryDark: '#15803d', darkGreen: '#14532d', earth: '#d97706', lightEarth: '#fef3c7', darkBg: '#0f172a' } } } }
+    </script>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-primary selection:text-white">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass border-b border-gray-200">
+        <!-- Same Navbar structure -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div
+                        class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-earth flex items-center justify-center text-white">
+                        <i class="fa-solid fa-leaf text-xl"></i></div>
+                    <span class="font-outfit font-bold text-2xl text-darkGreen">Smart Kissan <span
+                            class="text-primary">AI</span></span>
+                </a>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html"
+                        class="text-slate-600 hover:text-primary font-medium transition-colors">Home</a>
+                    <a href="about.html"
+                        class="text-slate-600 hover:text-primary font-medium transition-colors">About</a>
+                    <a href="services.html" class="text-primary font-semibold transition-colors">Services</a>
+
+                    <a href="contact.html"
+                        class="text-slate-600 hover:text-primary font-medium transition-colors">Contact</a>
+                    <a href="howtogrow.html" class="text-slate-600 hover:text-primary font-medium transition-colors">How
+                        To Grow</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="pt-32 pb-20 bg-darkGreen text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-darkGreen/80"></div>
+        <div class="max-w-3xl mx-auto px-4 relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Our Services</h1>
+            <p class="text-green-100 text-lg">Comprehensive smart farming solutions tailored for you.</p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Service 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover-lift group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1592982537447-6f2a6a0c5c10?w=600" alt="Crop"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <i class="fa-solid fa-seedling text-2xl mb-2 text-primary"></i>
+                            <h3 class="text-xl font-bold">AI Crop Recommendation</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 mb-4">Utilize satellite data and AI to determine the best crops for
+                            your specific soil type and climatic conditions.</p>
+                        <a href="login.html" class="text-primary font-bold hover:underline">Try Now <i
+                                class="fa-solid fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover-lift group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1614977645540-7faa32233f23?w=600" alt="Disease"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <i class="fa-solid fa-microscope text-2xl mb-2 text-red-500"></i>
+                            <h3 class="text-xl font-bold">Disease Detection</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 mb-4">Upload an image of a sick leaf, and our computer vision model
+                            will instantly identify the disease and provide cures.</p>
+                        <a href="login.html" class="text-primary font-bold hover:underline">Try Now <i
+                                class="fa-solid fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover-lift group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?w=600" alt="Irrigation"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <i class="fa-solid fa-droplet text-2xl mb-2 text-blue-400"></i>
+                            <h3 class="text-xl font-bold">Smart Irrigation</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 mb-4">Automated watering schedules based on real-time soil moisture
+                            sensors and hyperlocal weather forecasting.</p>
+                        <a href="login.html" class="text-primary font-bold hover:underline">Try Now <i
+                                class="fa-solid fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover-lift group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1534088568595-a066f410cbda?w=600" alt="Weather"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <i class="fa-solid fa-cloud-sun-rain text-2xl mb-2 text-amber-400"></i>
+                            <h3 class="text-xl font-bold">Weather Monitoring</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 mb-4">Hyperlocal 14-day forecasts tailored to your exact farm
+                            coordinates, with severe weather push notifications.</p>
+                        <a href="login.html" class="text-primary font-bold hover:underline">Try Now <i
+                                class="fa-solid fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover-lift group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1472653431158-6364773b2a56?w=600" alt="Marketplace"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <i class="fa-solid fa-store text-2xl mb-2 text-purple-400"></i>
+                            <h3 class="text-xl font-bold">B2B Marketplace</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 mb-4">A direct marketplace eliminating middlemen. Sell your crops
+                            directly to buyers or purchase certified seeds.</p>
+                        <a href="login.html" class="text-primary font-bold hover:underline">Try Now <i
+                                class="fa-solid fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover-lift group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600" alt="Finance"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <i class="fa-solid fa-chart-line text-2xl mb-2 text-green-400"></i>
+                            <h3 class="text-xl font-bold">Financial Analytics</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 mb-4">Track your expenses, calculate ROI, and predict future profits
+                            using our advanced financial dashboard.</p>
+                        <a href="login.html" class="text-primary font-bold hover:underline">Try Now <i
+                                class="fa-solid fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

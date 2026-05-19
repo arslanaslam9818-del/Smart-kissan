@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Smart Kissan AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#16a34a', primaryDark: '#15803d', darkGreen: '#14532d', earth: '#d97706', lightEarth: '#fef3c7', darkBg: '#0f172a' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-primary selection:text-white">
+
+    <!-- Sticky Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-earth flex items-center justify-center text-white shadow-lg">
+                            <i class="fa-solid fa-leaf text-xl"></i>
+                        </div>
+                        <span class="font-outfit font-bold text-2xl text-darkGreen tracking-tight">Smart Kissan <span class="text-primary">AI</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-slate-600 hover:text-primary font-medium transition-colors">Home</a>
+                    <a href="about.html" class="text-primary font-semibold transition-colors">About</a>
+                    <a href="services.html" class="text-slate-600 hover:text-primary font-medium transition-colors">Services</a>
+                    <a href="contact.html" class="text-slate-600 hover:text-primary font-medium transition-colors">Contact</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="login.html" class="text-slate-600 hover:text-primary font-medium transition-colors">Login</a>
+                    <a href="signup.html" class="bg-primary hover:bg-primaryDark text-white px-6 py-2.5 rounded-full font-semibold shadow-md transition-all">Get Started</a>
+                </div>
+                <!-- Mobile Menu Button omitted for brevity in sub-pages, but included the icon -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-slate-600 focus:outline-none"><i class="fa-solid fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-20 bg-darkGreen text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1592982537447-6f2a6a0c5c10?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-20"></div>
+        <div class="absolute inset-0 bg-darkGreen/80"></div>
+        <div class="max-w-3xl mx-auto px-4 relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">About Us</h1>
+            <p class="text-green-100 text-lg">Revolutionizing agriculture in Pakistan through AI and data-driven insights.</p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h3 class="text-primary font-bold tracking-wide uppercase mb-2">Our Mission</h3>
+                    <h2 class="text-3xl font-bold text-darkGreen mb-6">Empowering farmers with smart technology</h2>
+                    <p class="text-slate-600 leading-relaxed mb-6">At Smart Kissan AI, our mission is to bridge the technology gap in Pakistan's agricultural sector. We aim to provide every farmer, regardless of their farm size, access to advanced AI tools that can help them increase yield, reduce costs, and mitigate risks caused by climate change and crop diseases.</p>
+                    <p class="text-slate-600 leading-relaxed">We believe that by combining traditional farming wisdom with modern artificial intelligence, we can create a sustainable and highly productive agricultural ecosystem.</p>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1589923158776-cb4485d99fd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Farmers" class="rounded-3xl shadow-xl w-full">
+                    <div class="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hidden md:block">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-primary text-xl">
+                                <i class="fa-solid fa-seedling"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-slate-800">10+ Years</h4>
+                                <p class="text-sm text-slate-500">AgriTech Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-primary font-bold tracking-wide uppercase mb-3">Our Team</h2>
+                <h3 class="text-4xl font-bold text-darkGreen">The minds behind Smart Kissan</h3>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Member 1 -->
+                <div class="bg-white rounded-3xl p-6 text-center shadow-sm border border-gray-100 hover-lift">
+                    <img src="https://i.pravatar.cc/300?img=11" alt="Team" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-green-50">
+                    <h4 class="font-bold text-lg text-slate-800">Dr. Tariq Mahmood</h4>
+                    <p class="text-primary font-medium mb-3">Chief Agronomist</p>
+                    <div class="flex justify-center gap-3 text-slate-400">
+                        <a href="#" class="hover:text-primary"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-primary"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+                <!-- Member 2 -->
+                <div class="bg-white rounded-3xl p-6 text-center shadow-sm border border-gray-100 hover-lift">
+                    <img src="https://i.pravatar.cc/300?img=5" alt="Team" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-green-50">
+                    <h4 class="font-bold text-lg text-slate-800">Aisha Khan</h4>
+                    <p class="text-primary font-medium mb-3">AI Research Lead</p>
+                    <div class="flex justify-center gap-3 text-slate-400">
+                        <a href="#" class="hover:text-primary"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <!-- Member 3 -->
+                <div class="bg-white rounded-3xl p-6 text-center shadow-sm border border-gray-100 hover-lift">
+                    <img src="https://i.pravatar.cc/300?img=33" alt="Team" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-green-50">
+                    <h4 class="font-bold text-lg text-slate-800">Bilal Ahmad</h4>
+                    <p class="text-primary font-medium mb-3">CTO & Co-Founder</p>
+                    <div class="flex justify-center gap-3 text-slate-400">
+                        <a href="#" class="hover:text-primary"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <!-- Member 4 -->
+                <div class="bg-white rounded-3xl p-6 text-center shadow-sm border border-gray-100 hover-lift">
+                    <img src="https://i.pravatar.cc/300?img=9" alt="Team" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-green-50">
+                    <h4 class="font-bold text-lg text-slate-800">Sara Ali</h4>
+                    <p class="text-primary font-medium mb-3">Head of Operations</p>
+                    <div class="flex justify-center gap-3 text-slate-400">
+                        <a href="#" class="hover:text-primary"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-darkGreen text-center mb-12">Our Journey</h3>
+            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-green-200 before:to-transparent">
+                <!-- Item 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-primary text-slate-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition">
+                        <div class="text-sm text-primary font-bold mb-1">2022</div>
+                        <h4 class="text-lg font-bold text-slate-800">Idea Inception</h4>
+                        <p class="text-slate-600 mt-2 text-sm">Founded in Lahore with a vision to integrate AI into traditional farming methods.</p>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-primary text-slate-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition">
+                        <div class="text-sm text-primary font-bold mb-1">2023</div>
+                        <h4 class="text-lg font-bold text-slate-800">First MVP Launch</h4>
+                        <p class="text-slate-600 mt-2 text-sm">Launched basic crop recommendation engine reaching our first 1,000 farmers.</p>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-primary text-slate-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fa-solid fa-microscope"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition">
+                        <div class="text-sm text-primary font-bold mb-1">2024</div>
+                        <h4 class="text-lg font-bold text-slate-800">AI Disease Detection</h4>
+                        <p class="text-slate-600 mt-2 text-sm">Introduced image-based AI analysis for accurate disease detection in crops.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Simplified for brevity) -->
+    <footer class="bg-darkBg text-slate-300 py-8 text-center border-t border-slate-800">
+        <p>&copy; 2026 Smart Kissan AI. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

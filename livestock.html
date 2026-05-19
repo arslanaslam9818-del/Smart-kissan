@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livestock Management | Smart Kissan AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#16a34a', darkGreen: '#14532d', earth: '#d97706', darkBg: '#0f172a' } } } }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-inter overflow-x-hidden">
+
+    <aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform transform bg-white border-r border-gray-200 lg:translate-x-0">
+        <!-- Sidebar content -->
+        <div class="h-full px-3 py-4 overflow-y-auto bg-white flex flex-col">
+            <a href="../index.html" class="flex items-center gap-2 mb-8 pl-2 mt-2">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-earth flex items-center justify-center text-white"><i class="fa-solid fa-leaf text-sm"></i></div>
+                <span class="font-outfit font-bold text-xl text-darkGreen">Smart Kissan</span>
+            </a>
+            <ul class="space-y-2 font-medium flex-1">
+                <li><a href="index.html" class="flex items-center p-3 text-slate-600 rounded-lg hover:bg-slate-100 hover:text-primary transition-colors"><i class="fa-solid fa-chart-pie w-6"></i><span class="ml-3">Overview</span></a></li>
+                <li><a href="livestock.html" class="flex items-center p-3 text-primary rounded-lg bg-green-50"><i class="fa-solid fa-cow w-6"></i><span class="ml-3">Livestock</span></a></li>
+                <!-- Other links -->
+            </ul>
+        </div>
+    </aside>
+
+    <div id="main-content" class="p-4 lg:ml-64 transition-all duration-300">
+        <nav class="bg-white border border-gray-200 rounded-2xl px-4 py-3 flex justify-between items-center mb-6 shadow-sm">
+            <h2 class="text-xl font-bold text-slate-800">Livestock Management</h2>
+            <button class="bg-primary hover:bg-primaryDark text-white px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2 text-sm shadow-sm">
+                <i class="fa-solid fa-plus"></i> Add Animal
+            </button>
+        </nav>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Animal Card -->
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover-lift">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-16 h-16 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center text-2xl"><i class="fa-solid fa-cow"></i></div>
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-800">Cow - Tag #104</h3>
+                        <p class="text-sm text-slate-500">Sahiwal Breed</p>
+                    </div>
+                </div>
+                <div class="space-y-2 mb-4">
+                    <div class="flex justify-between text-sm"><span class="text-slate-500">Health</span><span class="font-bold text-green-500">Excellent</span></div>
+                    <div class="flex justify-between text-sm"><span class="text-slate-500">Milk/Day</span><span class="font-bold">14 Liters</span></div>
+                    <div class="flex justify-between text-sm"><span class="text-slate-500">Next Vaccine</span><span class="font-bold text-red-500">12 Jun, 2026</span></div>
+                </div>
+                <button class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2 rounded-xl transition-colors text-sm">View Details</button>
+            </div>
+
+            <!-- Animal Card -->
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover-lift">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-16 h-16 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center text-2xl"><i class="fa-solid fa-horse"></i></div>
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-800">Buffalo - Tag #201</h3>
+                        <p class="text-sm text-slate-500">Nili-Ravi Breed</p>
+                    </div>
+                </div>
+                <div class="space-y-2 mb-4">
+                    <div class="flex justify-between text-sm"><span class="text-slate-500">Health</span><span class="font-bold text-green-500">Good</span></div>
+                    <div class="flex justify-between text-sm"><span class="text-slate-500">Milk/Day</span><span class="font-bold">18 Liters</span></div>
+                    <div class="flex justify-between text-sm"><span class="text-slate-500">Next Vaccine</span><span class="font-bold">20 Aug, 2026</span></div>
+                </div>
+                <button class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2 rounded-xl transition-colors text-sm">View Details</button>
+            </div>
+            
+        </div>
+    </div>
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
